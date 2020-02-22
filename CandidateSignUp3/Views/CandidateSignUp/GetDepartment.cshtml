@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CandidateSignUp3.Models.CandidateSignUp_Model>
+@using Kendo.Mvc.UI
+
+
+@(Html.Kendo().Grid<CandidateSignUp3.Models.CandidateSignUp_Model>()
+    .Name("grid")
+    .Columns(columns=>
+    {
+        columns.Bound(c => c.id);
+        columns.Bound(c => c.Department);
+        columns.Bound(c => c.FirstName).Title("Name");
+        columns.Bound(c => c.Position);
+        columns.Bound(c => c.PhoneNo);
+        columns.Bound(c => c.Email);
+    }
+    )
+    //.Pageable(pageable => pageable
+    //.Refresh(true)
+    //.PageSizes(true)
+    //.ButtonCount(5))
+
+    .DataSource(dataSource => dataSource
+    .Ajax()
+    .Read(read => read.Action("GetDepartment", "CandidateSignup"))
+
+    .PageSize(5)
+    )
+    )
+
+

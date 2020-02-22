@@ -1,0 +1,41 @@
+﻿@model CandidateSignUp3.Models.SignUp
+
+@{
+//ViewBag.Title = "Signup";
+//Layout = "~/Views/Shared/_mainlayout.cshtml";
+}
+
+<h2><u>Signup</u></h2>
+
+@using (Html.BeginForm("Registration", "User", FormMethod.Post, new { id = "mainform", name = "mainform" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+    <div class="col-lg-12 rcorners2">
+        <div class="col-md-9">
+
+            <div class="form-group required-field">
+                @Html.LabelFor(x => x.Email, "Email ID", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", autocomplete = "off", placeholder = "Enter Your Email Address" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "error" })
+            </div>
+            <div class="form-group required-field">
+                @Html.LabelFor(x => x.Password, "Password", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.TextBoxFor(model => model.Password, new { @class = "form-control", autocomplete = "off", placeholder = "Enter the Password" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "error" })
+            </div>
+            <div class="form-group required-field">
+            @Html.LabelFor(x => x.ConfirmPassword, "Confirm Password", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "form-control", autocomplete = "off", placeholder = "Re-Enter the Password" })
+            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "error" })
+        </div>
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2">
+                    <input type="submit" class="btn btn-primary" value="Submit" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">   <div class="logo-header"><a href="/"><img alt="" src="~/Content/Image/Uni1.png" title="UniApp"></a></div></div>
+    </div>
+}

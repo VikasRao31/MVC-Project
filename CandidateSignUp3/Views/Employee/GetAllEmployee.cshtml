@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CandidateSignUp3.Models.LoginPage_tblEmployee>
+@using Kendo.Mvc.UI;
+@{
+
+    ViewBag.Title = "EmployeeCRUD";
+}
+<div class="container">
+    <div class="row">
+        @(Html.Kendo().Grid<CandidateSignUp3.Models.LoginPage_tblEmployee>()
+             .Name("fs")
+             .Selectable()
+             .Columns(columns =>
+             {
+                 columns.Bound(c => c.EmployeeID);
+                 columns.Bound(c => c.FirstName);
+                 columns.Bound(c => c.LastName);
+                 columns.Command(command =>
+                 {
+                 command.Edit();
+                 command.Destroy();
+                 }).Width(200);
+             })
+              .Sortable()
+             .Pageable(pageble =>
+             {
+                 pageble.Refresh(true);
+                 pageble.PageSizes(true);
+             })
+             .DataSource(datasource => datasource
+             .Ajax()
+            .Model(model =>
+            {
+               model.Id(emp => emp.EmployeeID);
+             model.Field(emp => emp.EmployeeID).Editable(false);
+
+            }
+            )
+             .Read(read => read.Action("GetAllEmployees", "Employee",new {id="1" }))
+             .Update(update => update.Action("UpdateEmployee", "Employee"))
+             .Create(create => create.Action("AddEmployee", "Employee"))
+             .Destroy(destroy => destroy.Action("DeleteEmployee", "Employee"))
+             )
+            .ToolBar(toolbar => toolbar.Create())
+             .Editable(editable => editable.Mode(GridEditMode.InLine))
+            
+        )
+    </div>
+
+</div>

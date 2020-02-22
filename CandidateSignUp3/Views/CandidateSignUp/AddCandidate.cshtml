@@ -1,0 +1,264 @@
+﻿@model CandidateSignUp3.Models.CandidateSignUp_Model
+@*@using Kendo.Mvc*@
+@{
+    ViewBag.Title = "AddCandidate";
+}
+
+<h2>AddCandidate</h2>
+
+@using (Html.BeginForm("AddCandidate", "CandidateSignup", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<table>
+    <tr>
+        <th>
+            @Html.LabelFor(x => x.FirstName)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.FirstName, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+            @Html.ValidationMessageFor(x => x.FirstName)
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.LabelFor(x => x.MiddleName)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.MiddleName, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+            @Html.ValidationMessageFor(x => x.MiddleName)
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.LabelFor(x => x.LastName)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.LastName, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+            @Html.ValidationMessageFor(x => x.LastName)
+        </th>
+
+    </tr>
+    <tr height="10"><td></td></tr>
+    <tr>
+        <th>
+            @Html.LabelFor(x => x.FatherName)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.FatherName, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+            @Html.ValidationMessageFor(x => x.FatherName)
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.LabelFor(x => x.PhoneNo)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.PhoneNo, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+            @Html.ValidationMessageFor(x => x.PhoneNo)
+        </th>
+
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.LabelFor(x => x.Gender)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.DropDownListFor(x => x.Gender, new List<SelectListItem>{
+new SelectListItem{Text="Male",Value="Male"},
+new SelectListItem{Text="Female",Value="Female"} }, "--- Select ---"
+           )
+        </th>
+    </tr>
+    <tr height="10"><td></td></tr>
+    <tr>
+        <th>
+            @Html.LabelFor(x => x.Caste)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.Caste, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.LabelFor(x => x.Religion)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.Religion, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.LabelFor(x => x.MartialStatus)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.DropDownListFor(x => x.MartialStatus, new List<SelectListItem>{
+        new SelectListItem{Text="Yes",Value="No"},
+        new SelectListItem{Text="No",Value="No"} }, "--- Select ---"
+                                )
+        </th>
+    </tr>
+    <tr height="10"><td></td></tr>
+    <tr>
+        <th>
+            @Html.LabelFor(x => x.BloodGroup)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.BloodGroup, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.LabelFor(x => x.Department)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.Department, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.LabelFor(x => x.Position)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.Position, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+        </th>
+    </tr>
+    <tr height="10"><td></td></tr>
+    <tr>
+        <th>
+            @Html.LabelFor(x => x.Email)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.LabelFor(x => x.Address)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.Address, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.LabelFor(x => x.HomeState)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.HomeState, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+        </th>
+    </tr>
+    <tr height="10"><td></td></tr>
+    <tr>
+        <th>
+            @Html.LabelFor(x => x.HomeDistrict)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.HomeDistrict, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.LabelFor(x => x.PinCode)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.PinCode, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.LabelFor(x => x.Remarks)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.EditorFor(x => x.Remarks, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+        </th>
+    </tr>
+    <tr height="10"><td></td></tr>
+    <tr>
+        <th>
+            @Html.LabelFor(x => x.ImagePath)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            <input type="file" name="ImageFile" />
+        </th>
+    </tr>
+    <tr height="10"><td></td></tr>
+    <tr>
+        <th>
+            <input type="Submit" value="Create" class="btn btn-default" />
+        </th>
+    </tr>
+</table>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

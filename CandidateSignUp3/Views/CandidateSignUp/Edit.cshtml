@@ -1,0 +1,114 @@
+﻿@model CandidateSignUp3.Models.CandidateSignUp_Model
+@{
+    ViewBag.Title = "EditEmployee";
+}
+
+<h2>EditEmployee</h2>
+<br />
+@using (Html.BeginForm("Edit", "CandidateSignUp", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table>
+        <tr>
+            <th>
+                @Html.LabelFor(x => x.FirstName)
+            </th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.EditorFor(x => x.FirstName, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.LabelFor(x => x.MiddleName)
+            </th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.EditorFor(x => x.MiddleName, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+            </th>
+
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.LabelFor(x => x.LastName)
+            </th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.EditorFor(x => x.LastName, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+            </th>
+
+        </tr>
+        <tr height="10"><td></td></tr>
+        <tr>
+            <th>
+                @Html.LabelFor(x => x.FatherName)
+            </th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.EditorFor(x => x.FatherName, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.LabelFor(x => x.Caste)
+            </th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.EditorFor(x => x.Caste, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+            </th>
+
+        <tr height="10"><td></td></tr>
+        <tr>
+            <th>
+                @Html.LabelFor(x => x.Religion)
+            </th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.EditorFor(x => x.Religion, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+            </th>
+        <tr height="10"><td></td></tr>
+        <tr>
+            <th>
+                @Html.LabelFor(x => x.BloodGroup)
+            </th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.EditorFor(x => x.BloodGroup, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.LabelFor(x => x.Remarks)
+            </th>
+            <th></th>
+            <th></th>
+            <th>
+                @Html.EditorFor(x => x.Remarks, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;" } })
+            </th>
+        <tr height="10"><td></td></tr>
+        <tr height="10"><td></td></tr>
+        <tr>
+            <th>
+                <input type="Submit" value="Update" class="btn btn-default" />
+            </th>
+        </tr>
+    </table>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

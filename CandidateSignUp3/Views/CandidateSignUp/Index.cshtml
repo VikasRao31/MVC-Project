@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CandidateSignUp3.Models.CandidateSignUp_Model>
+
+@using Kendo.Mvc.UI
+
+@{
+//ViewBag.Title = "Index";
+}
+@*<h2>Index</h2>*@
+@*<p>
+        @Html.ActionLink("Create New", "AddCandidate")
+    </p>*@
+<br />
+
+@(Html.Kendo().Grid<CandidateSignUp3.Models.CandidateSignUp_Model>
+    ()
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(c => c.id);
+        columns.Bound(c => c.FirstName);
+        columns.Bound(c => c.MiddleName);
+        columns.Bound(c => c.LastName);
+        columns.Bound(c => c.FatherName);
+        columns.Bound(c => c.Caste);
+        columns.Bound(c => c.Religion);
+        columns.Bound(c => c.BloodGroup);
+        columns.Bound(c => c.Remarks);
+        columns.Bound(c => c.ImagePath).Title("Image").ClientTemplate("<img src=#=ImagePath# height='62' width='62'/>");
+        columns.Bound(c => c.id).ClientTemplate("<a href='" + Url.Action("Edit", "CandidateSignup", new { id = "#= id#"}) + "' title=\"" + "Edit" + "\">   Edit</a>").Width(50).HtmlAttributes(new { @class = "text-center" }).HtmlAttributes(new { @class = "text-center" });
+        columns.Bound(c => c.id).ClientTemplate("<a href='" + Url.Action("Delete", "CandidateSignup", new { id = "#= id#" }) + "' title=\"" + "Edit" + "\">   Delete</a>").Width(50).HtmlAttributes(new { @class = "text-center" }).HtmlAttributes(new { @class = "text-center" });
+    }
+    )
+    // .HtmlAttributes(new { style = "height: 550px;" })
+    //.Scrollable()
+    // .Groupable()
+    .Sortable()
+    .Pageable(pageable => pageable
+    .Refresh(true)
+    .PageSizes(true)
+    .ButtonCount(5))
+
+    .DataSource(dataSource => dataSource
+    .Ajax()
+    .Read(read => read.Action("Index", "CandidateSignup"))
+
+    .PageSize(5)
+    )
+    )

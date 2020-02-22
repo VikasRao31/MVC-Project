@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<head>
+    <meta charset="UTF-8">
+    <title>my first web page</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/CSS/MyCss.css">
+</head>
+
+<body>
+
+    @model CandidateSignUp3.Models.UserLogin
+    @{
+
+        ViewBag.Title = "LoginUser";
+        Layout = null;
+    }
+
+
+    @using (Html.BeginForm("LoginUser", "User", FormMethod.Post))
+    {
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div>
+                        <h1>Login</h1>
+
+                    </div>
+                    <div>
+                        <label>Email: </label>
+                        @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @style = "width: 900px;max-width: 250px;", autocomplete = "off" } })
+                        @Html.ValidationMessageFor(x => x.Email, "", new { @style = "color:red" })
+                    </div>
+                    <div>
+                        <lable>Password:</lable>
+                        @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control", @type = "Password", @style = "width: 900px;max-width: 250px;", autocomplete = "off" } })
+                        @Html.ValidationMessageFor(x => x.Password, "", new { @style = "color:red" })
+                    </div>
+                    <div>
+                        <label>Remember Me</label>
+                        @Html.CheckBoxFor(x => x.RememberMe)
+                    </div>
+                    <div>
+                        @ViewBag.Message
+                    </div>
+                    <div>
+                        <input type="Submit" value="Login" class="btn btn-default" />
+                        <button onclick="location.href='@Url.Action("Registration", "User")';return false;" class="btn btn-default">SignUp </button>
+                        <button onclick="location.href='@Url.Action("ForgotPassword", "User")';return false;" class="btn btn-default">Forgot Password?    </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</body>
